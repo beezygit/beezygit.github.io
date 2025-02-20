@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Subpage - PWA Deep-Link</title>
+  <!-- Optional iOS meta tag -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+<body>
+  <h1>Welcome to the Subpage!</h1>
+  <p>If your PWA launched here automatically, the deep link is working.</p>
+
+  <p><a href="../index.html">← Back to Main</a></p>
+</body>
+</html>
