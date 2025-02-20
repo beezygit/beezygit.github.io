@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>PWA Deep-Link Test</title>
-
-  <!-- Standard PWA manifest link -->
+  <meta charset="UTF-8" />
+  <title>PWA Install Button</title>
   <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#0f4a73">
 
-  <!-- iOS meta tags for standalone mode -->
+  <!-- Apple meta tags (for iOS standalone mode, but no install prompt) -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="DeepLinkPWA" />
-
-  <!-- iOS needs an apple-touch-icon (choose any PNG you like) -->
+  <meta name="apple-mobile-web-app-title" content="My PWA" />
   <link rel="apple-touch-icon" href="./icons/icon-192.png" />
 
-  <!-- Basic styling, optional -->
   <style>
-    body { font-family: sans-serif; margin: 20px; }
-    .deep-link {
-      padding: 10px;
-      background-color: #00B4D8;
-      color: #fff;
-      display: inline-block;
-      border-radius: 4px;
-      text-decoration: none;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #installBtn {
+      display: none; /* hidden by default, shown after event fires */
+      padding: 1em;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 5px;
+    }
+    #status {
+      margin-top: 20px;
+      padding: 1em;
+      background: #efefef;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-  <h1>PWA Deep-Link Test</h1>
-  <p>Your site is now live at <strong>https://beezygit.github.io/</strong>.</p>
+  <h1>PWA Install Demo</h1>
+  <p>This button will trigger an Add to Home Screen prompt **on Android Chrome** (and similar browsers) once the site is installable.</p>
 
-  <p>
-    <a href="./subpage/index.html" class="deep-link">
-      Go to Subpage (Deep Link)
-    </a>
-  </p>
+  <!-- The "Install to Homepage" button -->
+  <button id="installBtn">Install to Homepage</button>
 
-  <!-- Register service worker -->
+  <div id="status"></div>
+
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js')
-      .then(() => console.log('Service Worker registered.'))
-      .catch(err => console.error('SW registration failed:', err));
-    }
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+    const statusEl = document.getElementById('status');
+
+    // Listen for the 'beforeinstallprompt' event (Android/Chromium)
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault(); 
+      // Store the event for later use
+      deferredPrompt = e;
+      // Show the install button
+      installBtn.style.display = 'inline-block';
+      statusEl.textContent = 'beforeinstallprompt event fired - PWA installable.';
+    });
+
+    // When the user clicks the "Install" button
+    installBtn.addEventListener('click', async () => {
+      if (!deferredPrompt) {
+        statusEl.textContent = 'No install prompt available.';
+        return;
+      }
+      // Show the browser's Add to Home Screen prompt
+      deferredPrompt.prompt();
+      
+      // Wait for the user to respond
+      const choiceResult = await deferredPrompt.userChoice;
+      statusEl.textContent = `User choice: ${choiceResult.outcome}`;
+
+      // Reset the deferred prompt so it can only be used once
+      deferredPrompt = null;
+      // Hide the button again
+      installBtn.style.display = 'none';
+    });
+
+    // Optional: Listen for successful install
+    window.addEventListener('appinstalled', () => {
+      statusEl.textContent = 'PWA installed successfully!';
+      console.log('PWA installed');
+    });
   </script>
 </body>
 </html>

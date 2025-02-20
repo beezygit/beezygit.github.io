@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PWA Deep-Link Test</title>
+
+  <!-- Standard PWA manifest link -->
+  <link rel="manifest" href="./manifest.json" />
+
+  <!-- iOS meta tags for standalone mode -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="DeepLinkPWA" />
+
+  <!-- iOS needs an apple-touch-icon (choose any PNG you like) -->
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+
+  <!-- Basic styling, optional -->
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    .deep-link {
+      padding: 10px;
+      background-color: #00B4D8;
+      color: #fff;
+      display: inline-block;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>PWA Deep-Link Test</h1>
+  <p>Your site is now live at <strong>https://beezygit.github.io/</strong>.</p>
+
+  <p>
+    <a href="./subpage/index.html" class="deep-link">
+      Go to Subpage (Deep Link)
+    </a>
+  </p>
+
+  <!-- Register service worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+      .then(() => console.log('Service Worker registered.'))
+      .catch(err => console.error('SW registration failed:', err));
+    }
+  </script>
+</body>
+</html>
