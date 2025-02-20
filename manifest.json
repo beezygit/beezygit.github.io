@@ -7,30 +7,31 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2487.7">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
   </style>
 </head>
 <body>
-<p class="p1">{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"name": "PWA Deep-Link Test",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"short_name": "DeepLink",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"start_url": "/test/subpage/index.html",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"scope": "/test/subpage/",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"display": "standalone",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"background_color": "#ffffff",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"theme_color": "#0f4a73",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"icons": [</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"src": "./icons/icon-192.png",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"sizes": "192x192",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"type": "image/png"</p>
-<p class="p1"><span class="Apple-converted-space">    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"src": "./icons/icon-512.png",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"sizes": "512x512",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"type": "image/png"</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>]</p>
-<p class="p1">}</p>
+<p class="p1"><span class="s1">{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"name": "PWA Deep-Link Test",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"short_name": "DeepLink",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"start_url": "/subpage/index.html",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"scope": "/subpage/",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"display": "standalone",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"background_color": "#ffffff",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"theme_color": "#0f4a73",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"icons": [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"src": "./icons/icon-192.png",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"sizes": "192x192",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"type": "image/png"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"src": "./icons/icon-512.png",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"sizes": "512x512",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"type": "image/png"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>]</span></p>
+<p class="p1"><span class="s1">}</span></p>
 </body>
 </html>
